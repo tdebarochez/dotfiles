@@ -1,23 +1,80 @@
 [user]
-	name = Thomas Queste
-	email = tom@tomsquest.com
-	signingkey = 0x46ABEB7FF623F5EB
+	email = thomas.barochez+github@gmail.com
+	name = Thomas de Barochez
+[color]
+	ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
 [alias]
-	co = checkout
-	ci = commit
-	st = status
-	br = branch
-	diffw = diff --word-diff=color
-	fixup = !sh -c 'REV=$(git rev-parse $1) && git commit --fixup $@ && GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash $REV^' -
-	squash = !sh -c 'REV=$(git rev-parse $1) && git commit --squash $@ && GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash $REV^' -
+  p  = pull
+  co = checkout
+  ci = commit
+  st = status -s
+  br = branch
+  df = diff
+  lg = log --graph --pretty=format:'%Creset%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  l = log --graph --pretty=format:'%C(yellow)%h%Creset%C(red)%d %C(reset)%s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --all --date=local
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  addm = !git-ls-files -m -z | xargs -0 git-add && git status                     # add modified files
+  addu = !git-ls-files -o --exclude-standard -z | xargs -0 git-add && git status  # add new files
+  rmm  = !git ls-files -d -z | xargs -0 git-rm && git status                      # remove deleted file
+  wdiff = diff --word-diff
+  amend = commit --amend
+  who = shortlog -sne
+  oneline = log --pretty=oneline --abbrev-commit --graph
+  changes = diff --name-status
+  dic = diff --cached
+  diffstat = diff --stat
+  undo = git reset --soft HEAD^
+  climerge = mergetool -t diffmerge
+	tree = log --oneline --graph --decorate --all
+[diff]
+  mnemonicprefix = true
+  tool = diffmerge
+[difftool "diffmerge"]
+  cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+  tool = diffmerge
+[mergetool "diffmerge"]
+  cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+  trustExitCode = true
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [core]
-	excludesfile = ~/.gitignore
-	autocrlf = input
- 	pager = less -+$LESS -RSX
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  editor = vim
+  excludesfile = ~/.global_gitignore
+  autocrlf = input
+[push]
+  default = upstream
 [pull]
-	ff = only
+  rebase = true
+  ff = only
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
 [help]
-	autocorrect = -1
+	autocorrect = 1
 [tag]
 	sort = version:refname
 [credential]

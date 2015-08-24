@@ -26,4 +26,4 @@ target/
 .env
 # Direnv
 .envrc
-
+npm-debug.log

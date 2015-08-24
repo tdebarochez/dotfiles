@@ -17,10 +17,10 @@ alias h='history -iD'
 
 # ls
 # -v: natural sort of version
-alias ls='ls                                  -v --classify --group-directories-first --color=auto'
-alias  l='ls -l              --human-readable -v --classify --group-directories-first --color=auto'
-alias ll='ls -l              --human-readable -v --classify --group-directories-first --color=auto'
-alias la='ls -l --almost-all --human-readable -v --classify --group-directories-first --color=auto'
+alias ls='gls                                  --classify --group-directories-first --color=auto'
+alias  l='gls -l              --human-readable --classify --group-directories-first --color=auto'
+alias ll='gls -l              --human-readable --classify --group-directories-first --color=auto'
+alias la='gls -l --almost-all --human-readable --classify --group-directories-first --color=auto'
 
 # grep
 alias  grep='grep --color=auto'
@@ -28,12 +28,12 @@ alias egrep='grep --color=auto'
 alias zgrep='grep --color=auto'
 
 # More verbose fileutils
-alias cp='nocorrect cp -iv' # -i to prompt for every file
-alias mv='nocorrect mv -iv'
-alias rm='nocorrect rm -Iv' # -I to prompt when more than 3 files
-alias rmdir='rmdir -v'
-alias chmod='chmod -v'
-alias chown='chown -v'
+alias cp='nocorrect gcp -iv' # -i to prompt for every file
+alias mv='nocorrect gmv -iv'
+alias rm='nocorrect grm -Iv' # -I to prompt when more than 3 files
+alias rmdir='grmdir -v'
+alias chmod='gchmod -v'
+alias chown='gchown -v'
 
 # ZSH global aliases for piping
 # Example : cat myfile.txt G pattern
@@ -44,6 +44,7 @@ alias -g L='| less'
 # Parent directories
 alias cd..='cd ..'
 alias '..'='cd ..'
+alias dc='cd ..'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
@@ -54,7 +55,9 @@ alias -g .......='../../../../../..'
 alias      g='git'
 compdef    g=git
 alias     gs='git status'
+alias    gst='git status -s'
 alias     gl='git log --graph --abbrev-commit --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+alias    gll='git l'
 alias     gp='git pull; git log -n 1 | grep -q -c "\-\-wip\-\-" && echo "\033[0;33mWARNING: Last commit is a WIP\!\033[0m"'
 alias    gaa='git add -A'
 alias    gcm='git rev-parse --abbrev-ref origin/HEAD | cut -c8- | xargs -n 1 git checkout' # checkout master/main/develop automatically
@@ -87,6 +90,7 @@ alias nsd='printAndRun npm run start:dev'
 alias nsh='printAndRun npm run start:hmr'
 alias  nt='printAndRun npm test'
 alias ntw='printAndRun npm run test:watch'
+alias  nr="printAndRun npm run"
 
 # Scala SBT
 alias st='printAndRun sbt ~test-quick'
