@@ -1,3 +1,7 @@
+if has("autocmd")
+  autocmd! bufwritepost .vimrc source ~/.vimrc
+endif
+
 " Forget being compatible with good ol' vi
 set nocompatible
 
@@ -80,7 +84,7 @@ set hlsearch
 set incsearch
 
 " Display line number
-set number
+set relativenumber
 
 " Lines above/below cursor when scrolling
 set scrolloff=5
@@ -94,7 +98,7 @@ set sidescroll=1
 " Apparence
 set background=dark
 set t_Co=256
-colorscheme Tomorrow-Night
+colorscheme molokai
 
 " Highlight current line
 set cursorline
@@ -167,7 +171,6 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-
 " Indent/unindent visual mode selection
 vmap <tab> >gv
 vmap <S-tab> <gv
@@ -230,7 +233,7 @@ let g:netrw_preview=1
 " Opens buffer list
 map <Leader>b :CtrlPBuffer<CR>
 " Some more ignored dirs
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\target$\|\.class$\|\.settings$'
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|\.class$\|\.settings$'
 " Increase windows height
 let g:ctrlp_max_height = 30
 

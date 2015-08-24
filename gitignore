@@ -1,5 +1,4 @@
-*.swp
-*~
+# Various
 .svn/
 .sass-cache
 /log/*
@@ -13,8 +12,41 @@ target/
 .project
 .metadata
 .springBeans
-.idea
-*.iml
-.DS_Store
 Thumbs.db
-.env
+
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Mac
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# SublimeText project files
+/*.sublime-project
+*.sublime-workspace
+
+# vi
+.*.sw[a-z]
+*.un~
+Session.vim
+
+# emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+.org-id-locations
+*_archive
+
+# node/npm
+node_modules/
+npm-debug.log

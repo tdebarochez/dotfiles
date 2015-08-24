@@ -12,18 +12,18 @@ alias mu='multitail -cS apache -cS log4j -n 1000 --no-repeat -b 2 --mark-interva
 alias h='history -iD'
 
 # ls
-alias ls='ls                                  --classify --group-directories-first --color=auto'
-alias  l='ls -l              --human-readable --classify --group-directories-first --color=auto'
-alias ll='ls -l              --human-readable --classify --group-directories-first --color=auto'
-alias la='ls -l --almost-all --human-readable --classify --group-directories-first --color=auto'
+alias ls='gls                                  --classify --group-directories-first --color=auto'
+alias  l='gls -l              --human-readable --classify --group-directories-first --color=auto'
+alias ll='gls -l              --human-readable --classify --group-directories-first --color=auto'
+alias la='gls -l --almost-all --human-readable --classify --group-directories-first --color=auto'
 
 # More verbose fileutils
-alias cp='nocorrect cp -iv' # -i to prompt for every file
-alias mv='nocorrect mv -iv'
-alias rm='nocorrect rm -Iv' # -I to prompt when more than 3 files
-alias rmdir='rmdir -v'
-alias chmod='chmod -v'
-alias chown='chown -v'
+alias cp='nocorrect gcp -iv' # -i to prompt for every file
+alias mv='nocorrect gmv -iv'
+alias rm='nocorrect grm -Iv' # -I to prompt when more than 3 files
+alias rmdir='grmdir -v'
+alias chmod='gchmod -v'
+alias chown='gchown -v'
 
 # ZSH global aliases for piping
 # Example : cat myfile.txt G pattern
@@ -34,6 +34,7 @@ alias -g L='| less'
 # Parent directories
 alias cd..='cd ..'
 alias '..'='cd ..'
+alias dc='cd ..'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
@@ -44,9 +45,12 @@ alias -g .......='../../../../../..'
 alias   g='git'
 compdef g=git
 alias  gs='git status'
+alias gst='git status -s'
 alias  gl='git l'
 alias  gp='git pull'
 alias gaa='git add -A'
+alias fetch='git fetch'
+alias rebase='git rebase'
 
 # Maven
 # Override the mvn command with the colorized one.
@@ -66,3 +70,6 @@ alias mcit='alert printAndRun mvn-in-colors clean install $MAVEN_SKIP_TESTS'
 alias   mj='printAndRun mvn jetty:run'
 alias  mdt="mvn dependency:tree"
 
+alias e="subl -n ."
+alias ap="ansible-playbook -i hosts"
+alias nr="npm run"
