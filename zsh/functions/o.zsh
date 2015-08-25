@@ -1,6 +1,10 @@
 # open the file or ask to open it with sudo if write-protected
 function o() {
-  local opener=xdg-open
+  local opener=open
+  whence xdg-open
+  if [[ $? == 0 ]]; then
+    opener=xdg-open
+  fi
 
   if [[ -z "$1" ]]; then
     echo "$opener expects one argument"
