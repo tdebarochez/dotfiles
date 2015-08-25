@@ -48,9 +48,8 @@ zle -N vcs-status
 bindkey '^ ' vcs-status
 
 # Disable the capslock key and map it to escape
-xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+#xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 
 # Enable ctrl+s in Vim by disabling flow control and sending of start/stop characters
 # See: man stty (I don't know if it causes conflicts...)
 stty -ixon -ixoff
-
