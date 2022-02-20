@@ -27,3 +27,9 @@ target/
 # Direnv
 .envrc
 npm-debug.log
+
+# newrelic
+newrelic_agent.log
+
+# vscode
+.vscode/

@@ -13,14 +13,13 @@ alias rm='safe-rm'
 alias mu='multitail -cS apache -cS log4j -n 1000 --no-repeat -b 2 --mark-interval 2'
 
 # History with timestamps and elapsed time
-alias h='history -iD'
+alias hist='history -iD'
 
 # ls
-# -v: natural sort of version
-alias ls='gls                                  --classify --group-directories-first --color=auto'
-alias  l='gls -l              --human-readable --classify --group-directories-first --color=auto'
-alias ll='gls -l              --human-readable --classify --group-directories-first --color=auto'
-alias la='gls -l --almost-all --human-readable --classify --group-directories-first --color=auto'
+alias ls='exa    --classify --group-directories-first --color=auto --long --git'
+alias  l='exa -l --classify --group-directories-first --color=auto --long --git'
+alias ll='exa -l --classify --group-directories-first --color=auto --long --git'
+alias la='exa -l --classify --group-directories-first --color=auto --long --git'
 
 # grep
 alias  grep='grep --color=auto'
@@ -40,6 +39,7 @@ alias chown='gchown -v'
 alias -g G='| grep -in'
 alias -g T='| tail'
 alias -g L='| less'
+alias -g B='| bat'
 
 # Parent directories
 alias cd..='cd ..'
@@ -102,3 +102,6 @@ alias   dsa='alert printAndRun docker-compose start'
 alias   dso='alert printAndRun docker-compose stop'
 alias    dl='docker-compose logs'
 alias   dlf='docker-compose logs -f'
+alias e="subl -n ."
+alias ap="ansible-playbook -i hosts"
+alias tf="terraform"

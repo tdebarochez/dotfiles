@@ -67,3 +67,7 @@ zstyle ':completion:*:rm:*' ignore-line yes
 
 # Completion for sudo when the command is not in the current path
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+
+source /usr/local/share/zsh/site-functions
+
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi

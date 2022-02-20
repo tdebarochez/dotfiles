@@ -41,20 +41,10 @@ source ~/.zsh/fzf.zsh
 # See: https://github.com/rupa/z
 source ~/.rupa-z/z.sh
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/tom/Apps/anaconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/tom/Apps/anaconda/etc/profile.d/conda.sh" ]; then
-        . "/home/tom/Apps/anaconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/tom/Apps/anaconda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+source ~/.zsh/virtuo.zsh
+
+source $HOME/.cargo/env
+source $HOME/.asdf/asdf.sh
 
 # Load direnv through asdf
 eval "$(asdf exec direnv hook zsh)"

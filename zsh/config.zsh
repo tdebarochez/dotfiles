@@ -2,10 +2,10 @@
 # History
 #
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 # Share history betwen multiple termional sessions
-setopt share_history
+#setopt share_history
 # Append history, instead of replace, when a terminal session exits
 setopt appendhistory
 # Add commands as they are typed, don't wait until shell exit
@@ -89,11 +89,16 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 # Additional MANPATH
 export MANPATH="$MANPATH:$HOME/.local/man"
 # Java
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="$PATH:$JAVA_HOME/bin"
 # Maven
 export M2_HOME="$HOME/Apps/maven/current"
 export PATH="$PATH:$M2_HOME/bin"
+# Ruby
+export LOCAL_GEM_PATH=$HOME/.gem
+export PATH=$PATH:$LOCAL_GEM_PATH/ruby/2.0.0/bin:./node_modules/.bin
+export RBENV_ROOT=/usr/local/var/rbenv
+
 # Allows to kill backward word path by path using ctrl+w
 # With this, ctrl+w on '/usr/bin' will produce '/usr'. Without it, '/usr/bin' is removed.
 # Default is: *?_-.[]~=/&;!#$%^(){}<>

@@ -1,6 +1,10 @@
 [user]
 	email = thomas.barochez+github@gmail.com
 	name = Thomas de Barochez
+	signingkey = F35DBE97A2D66FA5
+	emailgit = describe
+[interactive]
+  diffFilter = delta --color-only --features=interactive
 [color]
 	ui = auto
 [color "branch"]
@@ -39,10 +43,14 @@
   diffstat = diff --stat
   undo = git reset --soft HEAD^
   climerge = mergetool -t diffmerge
-	tree = log --oneline --graph --decorate --all
+  tree = log --oneline --graph --decorate --all
+  #dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFX; }; f"
+  dsf = diff
+  commitsAtDate = "!f() { git log --pretty='format:%C(yellow)%h %G? %ad%Cred%d %Creset%s%C(cyan) [%cn]' --decorate --after=\"$1 0:00\" --before=\"$1 23:59\" --author \"`git config user.name`\"; }; f"
 [diff]
   mnemonicprefix = true
   tool = diffmerge
+  compactionHeuristic = true
 [difftool "diffmerge"]
   cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [merge]
@@ -61,6 +69,34 @@
   editor = vim
   excludesfile = ~/.global_gitignore
   autocrlf = input
+#  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended' --file-color="#e0e0a0" --hunk-color="#e0e0a0"
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+
+[delta]
+  side-by-side = true
+  features = unobtrusive-line-numbers decorations
+  line-numbers = true
+  plus-style = syntax "#005500"
+  minus-style = syntax "#550000"
+  minus-emph-style = syntax "#AA0000"
+  plus-emph-style = syntax "#00AA00"
+
+[delta "interactive"]
+  keep-plus-minus-markers = false
+
+[delta "decorations"]
+  commit-decoration-style = blue ol
+  commit-style = raw
+  file-style = omit
+  hunk-header-decoration-style = blue box
+  hunk-header-file-style = red
+  hunk-header-line-number-style = "#067a00"
+  hunk-header-style = file line-number syntax
+
 [push]
   default = upstream
 [pull]
@@ -70,9 +106,10 @@
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [help]
 	autocorrect = 1
 [tag]
@@ -91,3 +128,7 @@
 	showUntrackedFiles = all
 [fetch]
 	prune = true
+[init]
+	defaultBranch = main
+[remote "origin"]
+	tagopt = --tags

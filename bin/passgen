@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+function randomAlphaNumeric () {
+  const dico = '1234567890AZERTYUIOPQSDFGHJKLMWXCVBNazertyuiopqsdfghjklmwxcvbn=:;,.-_!()@'
+  return dico.charAt(Math.round(Math.random() * dico.length))
+}
+
+console.log([...Array(parseInt(process.argv[2], 10) || 16)].map(randomAlphaNumeric).join(''))
