@@ -44,7 +44,7 @@ function link-files {
     create-link "$PWD/gitignore"              "$HOME/.gitignore"
     create-link "$PWD/imwheelrc"              "$HOME/.imwheelrc"
     create-link "$PWD/libinput-gestures.conf" "$HOME/.config/libinput-gestures.conf"
-    create-link "$PWD/npmrc"                  "$HOME/.npmrc"
+    # create-link "$PWD/npmrc"                  "$HOME/.npmrc"
     create-link "$PWD/profile"                "$HOME/.profile"
     create-link "$PWD/ripgreprc"              "$HOME/.ripgreprc"
     create-link "$PWD/safe-rm"                "$HOME/.safe-rm"
@@ -80,7 +80,7 @@ function install-ripgrep {
     echo "Installing Ripgrep..."
     local -r TMP_DIR=$(mktemp -d)
     local -r URL=$(curl -s https://api.github.com/repos/BurntSushi/ripgrep/releases/latest | grep browser_download_url | grep x86_64-unknown-linux | cut -d '"' -f 4)
-    curl -L --progress-bar "$URL" | tar zx -C "$TMP_DIR" --strip 1 --wildcards '*/rg' --wildcards '*/rg.1' \
+    curl -L --progress-bar "$URL" | gtar zx -C "$TMP_DIR" --strip 1 --wildcards '*/rg' --wildcards '*/rg.1' \
        && mv "$TMP_DIR/rg" $HOME/.local/bin/ \
        && mv "$TMP_DIR/doc/rg.1" $HOME/.local/man/man1 \
        && rm -rf "$TMP_DIR"
@@ -90,14 +90,6 @@ function install-docker-compose {
     echo "Installing Docker-Compose..."
     local -r URL=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep browser_download_url | grep Linux-x86_64\" | cut -d '"' -f 4)
     local -r DEST="$HOME/.local/bin/docker-compose"
-    curl -L --progress-bar "$URL" > "$DEST" \
-      && chmod +x "$DEST"
-}
-
-function install-direnv {
-    echo "Installing Direnv..."
-    local -r URL=$(curl -s https://api.github.com/repos/direnv/direnv/releases/latest | grep browser_download_url | grep linux-amd64\" | cut -d '"' -f 4)
-    local -r DEST="$HOME/.local/bin/direnv"
     curl -L --progress-bar "$URL" > "$DEST" \
       && chmod +x "$DEST"
 }
@@ -118,6 +110,7 @@ function install-direnv {
     asdf plugin add direnv || true
     asdf install direnv 2.20.0
     asdf global  direnv 2.20.0
+    mkdir -p ~/.config/direnv/
     echo "source \$(asdf which direnv_use_asdf)" > ~/.config/direnv/direnvrc
 }
 
@@ -139,7 +132,7 @@ function install-all {
     install-from-git-repo "Asdf-vm"       "https://github.com/asdf-vm/asdf"         "$HOME/.asdf"
     install-fzf
     install-ripgrep
-    install-docker-compose
+    #install-docker-compose
     install-vim-plugins
     install-dircolors
     install-direnv

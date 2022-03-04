@@ -56,12 +56,12 @@ setopt complete_aliases
 #
 # ENV
 #
-eval "$(dircolors -b ~/.dircolors)"
+# eval "$(dircolors -b ~/.dircolors)"
 export TMPDIR='/tmp'
 export EDITOR='/usr/bin/vim'
 export VISUAL='/usr/bin/vim'
 export LESS='--ignore-case --RAW-CONTROL-CHARS --LONG-PROMPT --hilite-unread --tabs=2'
-eval $(lesspipe)
+# eval $(lesspipe)
 # Colors for less binary.
 # Src: https://unix.stackexchange.com/questions/119/colors-in-man-pages/147#147
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
