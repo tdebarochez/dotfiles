@@ -70,4 +70,4 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 
 source /usr/local/share/zsh/site-functions
 
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+if [ ~/.local/bin/kubectl ]; then source <(kubectl completion zsh); fi

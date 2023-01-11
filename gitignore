@@ -24,6 +24,8 @@ dist/
 target/
 *wallaby.js
 .env
+.eslintcache
+
 # Direnv
 .envrc
 npm-debug.log

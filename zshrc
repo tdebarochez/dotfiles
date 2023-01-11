@@ -1,5 +1,6 @@
 # zgen
 source ~/.zgen/zgen.zsh
+# update it frequently running `zgen update`
 if ! zgen saved; then
   echo "Creating a zgen save"
 
@@ -24,17 +25,11 @@ if ! zgen saved; then
   zgen save
 fi
 
-# Load ASDF
-# Needs to be done before compinit in config.zsh
-. $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
-
 source ~/.zsh/config.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/bindkey.zsh
 source ~/.zsh/prompt.zsh
-source ~/.zsh/fzf.zsh
 
 # Load rupa Z: quickly jump to recent directory with the z command
 # Example: z foo
@@ -44,15 +39,36 @@ source ~/.rupa-z/z.sh
 source ~/.zsh/virtuo.zsh
 
 source $HOME/.cargo/env
-source $HOME/.asdf/asdf.sh
-
-# Load direnv through asdf
-eval "$(asdf exec direnv hook zsh)"
-# A shortcut for asdf managed direnv.
-direnv() { asdf exec direnv "$@"; }
 
 # Local (to this machine) configuration
 # SHOULD BE LAST
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# bun completions
+[ -s "/Users/tdebarochez/.bun/_bun" ] && source "/Users/tdebarochez/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/Users/tdebarochez/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/tdebarochez/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/tdebarochez/.miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/tdebarochez/.miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/tdebarochez/.miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
