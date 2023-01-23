@@ -65,4 +65,4 @@ bindkey '^[^J' autosuggest-execute
 # setxkbmap -option caps:backspace
 
 # Disable flow control (ctrl+s, ctrl+q) to enable saving with ctrl+s in Vim
-stty -ixon -ixoff
+# stty -ixon -ixoff

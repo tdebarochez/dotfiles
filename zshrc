@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # zgen
 source ~/.zgen/zgen.zsh
 # update it frequently running `zgen update`
@@ -18,6 +25,7 @@ if ! zgen saved; then
   zgen load BurntSushi/ripgrep complete
   zgen load docker/compose contrib/completion/zsh
   zgen load tomsquest/q.plugin.zsh
+  zgen load romkatv/powerlevel10k powerlevel10k
 
   # Remove Zsh completion cache, given we may have updated a completion
   rm ~/.zcompdump || true
@@ -29,7 +37,7 @@ source ~/.zsh/config.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/bindkey.zsh
-source ~/.zsh/prompt.zsh
+#source ~/.zsh/prompt.zsh
 
 # Load rupa Z: quickly jump to recent directory with the z command
 # Example: z foo
@@ -72,3 +80,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.zsh/p10k.zsh ]] || source ~/.zsh/p10k.zsh

@@ -90,7 +90,8 @@ alias nsd='printAndRun npm run start:dev'
 alias nsh='printAndRun npm run start:hmr'
 alias  nt='printAndRun npm test'
 alias ntw='printAndRun npm run test:watch'
-alias  nr="printAndRun npm run"
+# replaced by https://github.com/antfu/ni#ni
+# alias  nr="printAndRun npm run"
 
 # Scala SBT
 alias st='printAndRun sbt ~test-quick'
@@ -105,3 +106,4 @@ alias   dlf='docker-compose logs -f'
 alias e="subl -n ."
 alias ap="ansible-playbook -i hosts"
 alias tf="terraform"
+alias dc="docker-compose"
