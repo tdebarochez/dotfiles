@@ -63,7 +63,7 @@ function install-all {
     install-from-git-repo "Zgen"          "https://github.com/tarjoilija/zgen"      "$HOME/.zgen"
     install-from-git-repo "Vim Vundle"    "https://github.com/VundleVim/Vundle.vim" "$HOME/.vundle"
 
-    install-vim-plugin
+    install-vim-plugins
     install-dircolors
 }
 
