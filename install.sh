@@ -62,8 +62,8 @@ function install-all {
     install-from-git-repo "Rupa-Z"        "https://github.com/rupa/z"               "$HOME/.rupa-z"
     install-from-git-repo "Zgen"          "https://github.com/tarjoilija/zgen"      "$HOME/.zgen"
     install-from-git-repo "Vim Vundle"    "https://github.com/VundleVim/Vundle.vim" "$HOME/.vundle"
-    install-ripgrep
-    install-vim-plugins
+
+    install-vim-plugin
     install-dircolors
 }
 
