@@ -44,6 +44,7 @@ function link-files {
     create-link "$PWD/vimrc"                  "$HOME/.vimrc"
     create-link "$PWD/zsh"                    "$HOME/.zsh"
     create-link "$PWD/zshrc"                  "$HOME/.zshrc"
+    create-link "$PWD/zsh/p10k.zsh"           "$HOME/.p10k.zsh"
 }
 
 function install-vim-plugins {

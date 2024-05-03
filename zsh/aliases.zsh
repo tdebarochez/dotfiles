@@ -91,7 +91,7 @@ alias nsh='printAndRun npm run start:hmr'
 alias  nt='printAndRun npm test'
 alias ntw='printAndRun npm run test:watch'
 # replaced by https://github.com/antfu/ni#ni
-# alias  nr="printAndRun npm run"
+alias  nr="printAndRun npm run"
 
 # Scala SBT
 alias st='printAndRun sbt ~test-quick'

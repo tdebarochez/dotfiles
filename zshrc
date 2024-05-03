@@ -37,6 +37,7 @@ source ~/.zsh/config.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 source ~/.zsh/bindkey.zsh
+source ~/.zsh/virtuo.zsh
 #source ~/.zsh/prompt.zsh
 
 # Load rupa Z: quickly jump to recent directory with the z command
@@ -44,15 +45,8 @@ source ~/.zsh/bindkey.zsh
 # See: https://github.com/rupa/z
 source ~/.rupa-z/z.sh
 
-source ~/.zsh/virtuo.zsh
 
-source $HOME/.cargo/env
-
-# Local (to this machine) configuration
-# SHOULD BE LAST
-if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local
-fi
+[[ ! -f $HOME/.cargo/env ]] || source $HOME/.cargo/env
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -63,7 +57,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Bun
 export BUN_INSTALL="/Users/tdebarochez/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -82,3 +75,14 @@ unset __conda_setup
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.zsh/p10k.zsh ]] || source ~/.zsh/p10k.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH=/opt/homebrew/bin:$PATH
+
+# Local (to this machine) configuration
+# SHOULD BE LAST
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi

@@ -13,4 +13,6 @@ compdef _virtuo.js_yargs_completions v
 export VIRTUO_HOME=$HOME/Prog/virtuo/integration
 export PATH=$PATH:$VIRTUO_HOME/bin
 
+export PATH=/opt/homebrew/bin:$PATH
+
 alias v='virtuo.js'
