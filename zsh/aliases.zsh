@@ -16,10 +16,10 @@ alias mu='multitail -cS apache -cS log4j -n 1000 --no-repeat -b 2 --mark-interva
 alias hist='history -iD'
 
 # ls
-alias ls='exa    --classify --group-directories-first --color=auto --long --git'
-alias  l='exa -l --classify --group-directories-first --color=auto --long --git'
-alias ll='exa -l --classify --group-directories-first --color=auto --long --git'
-alias la='exa -l --classify --group-directories-first --color=auto --long --git'
+alias ls='ls    --color=auto'
+alias  l='ls -a --color=auto'
+alias ll='ls -al --color=auto'
+alias la='ls -al --color=auto'
 
 # grep
 alias  grep='grep --color=auto'

@@ -45,8 +45,11 @@ source ~/.zsh/virtuo.zsh
 # See: https://github.com/rupa/z
 source ~/.rupa-z/z.sh
 
-
+# cargo (rust)
 [[ ! -f $HOME/.cargo/env ]] || source $HOME/.cargo/env
+
+# asdf
+[[ ! -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]] || source /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
