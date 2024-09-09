@@ -40,6 +40,8 @@ source ~/.zsh/bindkey.zsh
 source ~/.zsh/virtuo.zsh
 #source ~/.zsh/prompt.zsh
 
+HOMEBREW_HOME=/opt/homebrew
+
 # Load rupa Z: quickly jump to recent directory with the z command
 # Example: z foo
 # See: https://github.com/rupa/z
@@ -49,11 +51,11 @@ source ~/.rupa-z/z.sh
 [[ ! -f $HOME/.cargo/env ]] || source $HOME/.cargo/env
 
 # asdf
-[[ ! -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]] || source /opt/homebrew/opt/asdf/libexec/asdf.sh
+[[ ! -f $HOMEBREW_HOME/opt/asdf/libexec/asdf.sh ]] || source $HOMEBREW_HOME/opt/asdf/libexec/asdf.sh
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$HOMEBREW_HOME/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_HOME/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "$HOMEBREW_HOME/opt/nvm/bash_completion" ] && \. "$HOMEBREW_HOME/opt/nvm/bash_completion"  # This loads nvm bash_completion
 
 # bun completions
 [ -s "/Users/tdebarochez/.bun/_bun" ] && source "/Users/tdebarochez/.bun/_bun"
@@ -82,7 +84,7 @@ unset __conda_setup
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH=/opt/homebrew/bin:$PATH
+export PATH=$HOMEBREW_HOME/bin:$PATH
 
 # Local (to this machine) configuration
 # SHOULD BE LAST
