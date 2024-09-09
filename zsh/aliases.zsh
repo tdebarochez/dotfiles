@@ -4,7 +4,7 @@ alias df='df -h'
 alias free='free -h'
 alias f='find -iname'
 alias v='vim'
-alias meteo='curl http://wttr.in/Lille'
+alias meteo='curl http://wttr.in/Paris'
 alias up='sudo apt update && sudo apt -V --yes upgrade'
 alias ydl="youtube-dl --format best --output '%(upload_date)s.%(title)s.%(ext)s' --restrict-filenames --write-description"
 alias rm='safe-rm'
@@ -107,3 +107,7 @@ alias e="subl -n ."
 alias ap="ansible-playbook -i hosts"
 alias tf="terraform"
 alias dc="docker-compose"
+
+# k8s
+alias kx='kubectx'
+alias k='kubectl'
