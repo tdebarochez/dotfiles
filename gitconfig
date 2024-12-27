@@ -98,10 +98,11 @@
   hunk-header-style = file line-number syntax
 
 [push]
-  default = upstream
+	default = upstream
+	autoSetupRemote = true
 [pull]
-  rebase = true
-  ff = only
+	rebase = true
+	ff = only
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
