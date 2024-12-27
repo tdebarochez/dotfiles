@@ -79,3 +79,7 @@ then
 fi
 
 #if [ ~/.local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+if [ -d $HOME/.zsh/completions ] && [ -f $HOME/.zsh/completions/_deno.zsh ]
+then
+  source $HOME/.zsh/completions/_deno.zsh
+fi

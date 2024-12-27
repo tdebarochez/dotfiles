@@ -85,6 +85,7 @@ unset __conda_setup
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=$HOMEBREW_HOME/bin:$PATH
+export PATH=$PATH:/Users/tdebarochez/.deno/bin
 
 # Local (to this machine) configuration
 # SHOULD BE LAST
